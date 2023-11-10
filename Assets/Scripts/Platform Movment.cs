@@ -8,6 +8,10 @@ public class PlatformMovement : MonoBehaviour
     public float jumpforce = 10f;
     private bool isJumping = false;
     private Rigidbody2D rb;
+
+    public Animator animator;
+
+    float horizontalMovement = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +23,21 @@ public class PlatformMovement : MonoBehaviour
     {
         //CODE FOR HORIZONTAL MOVMENT
         float horizontalInput = Input.GetAxis("Horizontal");
+        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed;
         Vector2 moveVector = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+
+        animator.SetFloat("Walk", Mathf.Abs(horizontalMovement));
+
         //player is jumping
         if(Input.GetButtonDown("Jump")&& !isJumping){
             moveVector.y = jumpforce;
             isJumping = true;
-           
         }
          rb.velocity = moveVector;
 
          if(horizontalInput < 0 ){
             transform.localScale = new Vector3(-1, 1, 1);
-         }else if(horizontalInput < 0){
+         }else if(horizontalInput > 0){
             transform.localScale = new Vector3(1, 1, 1);
          }
 
