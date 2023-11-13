@@ -32,6 +32,7 @@ public class PlatformMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump")&& !isJumping){
             moveVector.y = jumpforce;
             isJumping = true;
+            animator.SetBool("isJumping" , false);
         }
          rb.velocity = moveVector;
 
@@ -44,9 +45,10 @@ public class PlatformMovement : MonoBehaviour
     }
 
     
-    private void OnCollisionEnter2D(Collision2D collision){
+    public void OnCollisionEnter2D(Collision2D collision){
     if(collision.gameObject.CompareTag("Ground")){
         isJumping = false;
+        animator.SetBool("isJumping" , false);
     }
 }
 }
