@@ -32,7 +32,7 @@ public class PlatformMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump")&& !isJumping){
             moveVector.y = jumpforce;
             isJumping = true;
-            animator.SetBool("isJumping" , false);
+            animator.SetBool("isJumping" , true);
         }
          rb.velocity = moveVector;
 
