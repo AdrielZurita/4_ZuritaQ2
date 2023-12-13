@@ -2,17 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Updatedparallex : MonoBehaviour
+public class updatedparallex : MonoBehaviour
 {
+    private float length, startPos;
+    public GameObject cam;
+    public float paralaxEffect;
     // Start is called before the first frame update
     void Start()
     {
-        startPos = transform.postion.x;
-        length - GetComponet<SpriteRenderer>().bounds.size.x;
+        startPos = transform.position.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-        float dist = (cam.transform.postion.x * paralaxEffect);
-        transform.postion = newVector(startPos + dist, transform.postion.y, transform.postion.z);
+    
+        float dist = (cam.transform.position.x * paralaxEffect);
+        transform.position = new Vector3(startPos + dist, transform.position.y, transform.position.z);
+       
+        
+        float temp = (cam.transform.position.x * (1 - paralaxEffect));
+        if(temp > startPos + length){
+            startPos += length;
+        }else if(temp < startPos - length){
+            startPos -= length;
+        }
+    } 
+}
