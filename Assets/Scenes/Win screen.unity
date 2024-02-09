@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Over
+  m_text: Victory
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb7ac55913de7a44483b1dad590d44b4, type: 2}
   m_sharedMaterial: {fileID: -1655130459784010327, guid: eb7ac55913de7a44483b1dad590d44b4, type: 2}
@@ -695,7 +695,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Retry '
+  m_text: 'Next level
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb7ac55913de7a44483b1dad590d44b4, type: 2}
   m_sharedMaterial: {fileID: -1655130459784010327, guid: eb7ac55913de7a44483b1dad590d44b4, type: 2}
